@@ -1,0 +1,31 @@
+{
+  "name": "chatting-app",
+  "version": "1.0.0",
+  "description": "Basic web based chatting application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "prettier": "prettier --write .",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "Joel Helkala",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/client": "^3.7.4",
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "framer-motion": "^8.5.2",
+    "graphql": "^16.6.0",
+    "next": "^13.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-config-next": "^13.1.4",
+    "prettier": "^2.8.3"
+  }
+}
