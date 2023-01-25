@@ -10,20 +10,23 @@ import {
 } from '@chakra-ui/react'
 import Logo from './logo'
 
-const LinkItem = ({ href, path, children }) => {
+const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
   const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900')
 
   return (
-    <NextLink href={href}>
-      <Link
-        p={2}
-        bg={active ? 'glassTeal' : undefined}
-        color={active ? '#202023' : inactiveColor}
-      >
-        {children}
-      </Link>
-    </NextLink>
+    <Link
+      as={NextLink}
+      href={href}
+      scroll={false}
+      p={2}
+      bg={active ? 'teal.500' : 'transparent'}
+      color={active ? 'white' : inactiveColor}
+      target={target}
+      {...props}
+    >
+      {children}
+    </Link>
   )
 }
 
@@ -59,6 +62,7 @@ const Navbar = props => {
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           flexGrow={1}
+          mt={{ base: 4, md: 0 }}
         >
           <LinkItem href="/about" path={path}>
             About
