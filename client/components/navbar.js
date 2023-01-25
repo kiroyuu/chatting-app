@@ -20,7 +20,7 @@ import Logo from './logo'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
-  const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900')
+  const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
 
   return (
     <Link
@@ -28,7 +28,7 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
       href={href}
       scroll={false}
       p={2}
-      bg={active ? 'teal.500' : 'transparent'}
+      bg={active ? 'teal.500' : undefined}
       color={active ? 'white' : inactiveColor}
       target={target}
       {...props}
@@ -43,6 +43,7 @@ const MenuLink = forwardRef((props, ref) => (
 ))
 
 const Navbar = props => {
+  console.log(props)
   const { path } = props
 
   return (
