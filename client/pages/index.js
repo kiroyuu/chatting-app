@@ -1,14 +1,6 @@
 import { gql } from '@apollo/client'
 import client from '../apollo-client'
-import {
-  Container,
-  Box,
-  Grid,
-  GridItem,
-  Stack,
-  LinkItem
-} from '@chakra-ui/react'
-import Logo from '../components/logo'
+import { Container, Box, Stack } from '@chakra-ui/react'
 
 export async function getStaticProps() {
   const { data } = await client.query({
@@ -32,13 +24,16 @@ export async function getStaticProps() {
 
 const Page = ({ countries }) => {
   return (
-    <Container className="bg-sky-500">
-      <Box borderRadius="lg" bg="red.600" p={4} textAlign="center" my={5}>
-        Hello, welcome to my chatting app!
-      </Box>
+    <Container className="bg-sky-500" mt={4}>
       <Stack direction={{ base: 'column', md: 'row' }}>
         {countries.map(country => (
-          <Box key={country.code} bg="red.400" p={2} borderRadius={3}>
+          <Box
+            key={country.code}
+            bg="red.400"
+            p={2}
+            borderRadius={3}
+            width={200}
+          >
             {country.emoji} {country.name}
           </Box>
         ))}

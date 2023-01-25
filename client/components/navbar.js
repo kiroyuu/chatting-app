@@ -3,11 +3,17 @@ import {
   Box,
   Container,
   Flex,
+  Menu,
+  MenuItem,
+  MenuList,
+  MenuButton,
+  IconButton,
   Heading,
   Link,
   Stack,
   useColorModeValue
 } from '@chakra-ui/react'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import Logo from './logo'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
@@ -71,6 +77,29 @@ const Navbar = props => {
             Browse
           </LinkItem>
         </Stack>
+        <Box flex={1} align="right">
+          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={<HamburgerIcon />}
+                variant="outline"
+                aria-label="Options"
+              />
+              <MenuList>
+                <NextLink href="/" passHref>
+                  <MenuItem as={Link}>Home</MenuItem>
+                </NextLink>
+                <NextLink href="/about" passHref>
+                  <MenuItem as={Link}>About</MenuItem>
+                </NextLink>
+                <NextLink href="/browse" passHref>
+                  <MenuItem as={Link}>Browse</MenuItem>
+                </NextLink>
+              </MenuList>
+            </Menu>
+          </Box>
+        </Box>
       </Container>
     </Box>
   )
